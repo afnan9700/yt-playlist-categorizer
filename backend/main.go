@@ -13,7 +13,7 @@ import (
 
 	"github.com/joho/godotenv"
 
-	pb "github.com/afnan9700/yt-playlist-categorizer/backend/proto" // adjust to the actual generated package path
+	pb "github.com/afnan9700/yt-playlist-categorizer/proto" // adjust to the actual generated package path
 
 	"google.golang.org/protobuf/encoding/protojson"
 )
