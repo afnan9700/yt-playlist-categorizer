@@ -1,11 +1,13 @@
 package main
 
+// hey there are several things i dont know in go
+// and also several things about how grpc is implement on the go-side
+// so could you please explain all my questions here?
 import (
 	"context"
 	"encoding/json"
 	"flag"
 
-	// "fmt"
 	"log"
 	"net/http"
 	"os"
@@ -13,7 +15,7 @@ import (
 
 	"github.com/joho/godotenv"
 
-	pb "github.com/afnan9700/yt-playlist-categorizer/proto" // adjust to the actual generated package path
+	pb "github.com/afnan9700/yt-playlist-categorizer/proto"
 
 	"google.golang.org/protobuf/encoding/protojson"
 )
@@ -26,7 +28,6 @@ type fetchPlaylistReq struct {
 }
 
 func main() {
-	// small flag for binding address
 	addr := flag.String("addr", ":8080", "http listen address")
 	flag.Parse()
 
