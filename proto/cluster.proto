@@ -1,5 +1,5 @@
 syntax = "proto3";
-package cluster;
+package proto;
 
 option go_package = "github.com/afnan9700/yt-playlist-categorizer/proto;proto";
 
