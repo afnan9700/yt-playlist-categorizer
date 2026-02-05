@@ -1,0 +1,34 @@
+syntax = "proto3";
+package cluster;
+
+// "package_path;package_name"
+option go_package = "github.com/afnan9700/yt-playlist-categorizer/proto;proto";
+
+// A minimal Video descriptor to send to the Python microservice.
+message Video {
+  string video_id = 1;
+  string title = 2;
+  // uploader channel id (videoOwnerChannelId)
+  string channel_id = 3;
+  // optional uploader channel description (may be empty)
+  string channel_description = 4;
+  string playlist_id = 5;
+  int32 position = 6;
+}
+
+// Sent from backend -> python microservice.
+message ClusterRequest {
+  repeated Video videos = 1;
+  string strategy = 2; // e.g. "hdbscan", "kmeans"
+  map<string,string> params = 3;
+}
+
+// Placeholder response (expand later as needed).
+message ClusterResponse {
+  repeated string labels = 1;
+}
+
+// Service contract (python implements the server).
+service ClusterService {
+  rpc ClusterVideos (ClusterRequest) returns (ClusterResponse);
+}
